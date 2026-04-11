@@ -1,0 +1,569 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lotus GeoSolutions</title>
+<link rel="stylesheet" href="Style/Stylesheet.css">
+<style>
+/* ===== GLOBAL ===== */
+
+
+/* PAGE BACKGROUND IMAGE */
+body{
+    background:url("Images/Backgroud_Img/ABNF.png") no-repeat center center fixed;
+    background-size:cover;
+}
+
+/* SLIDER CONTAINER */
+.mini-hero-slider{
+    position: relative;
+    width: 92%;          /* slightly increased */
+    max-width: 1600px;   /* increased from 1400px */
+    height: 300px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* SLIDES */
+.mini-slide{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background-size:contain;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+
+.mini-slide.active{
+    opacity:1;
+}
+
+/* ===== MAIN CONTENT CARD ===== */
+
+.about{
+    background:#ffffff;
+    margin:0px auto;
+    padding:60px 80px;
+    width:92%;
+    max-width:1300px;
+    border-radius:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.08);
+}
+
+/* wrapper */
+
+.about-wrapper{
+    display:flex;
+    justify-content:center;
+}
+
+.about-text{
+    max-width:900px;
+    margin:auto;
+}
+
+/* ===== TYPOGRAPHY ===== */
+
+.about-text p{
+    text-align:left;
+    font-size:16px;
+    margin-bottom:16px;
+}
+
+/* lists */
+
+.about-text ul{
+    margin:12px 0 24px 22px;
+}
+
+.about-text li{
+    margin-bottom:6px;
+    font-size:15px;
+}
+
+/* ===== SECTION TITLE ===== */
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+
+
+
+/* ===== HEADINGS ===== */
+
+h3{
+    font-size:18px;
+    color:#1b3556;
+    margin:40px 0 14px;
+}
+
+h4{
+    font-size:13px;
+    color:#1f7ae0;
+    margin:30px 0 10px;
+    background:#f4f8ff;
+    padding:10px 14px;
+    border-left:4px solid #1f7ae0;
+    border-radius:6px;
+}
+
+/* spacing fixes */
+
+.about h4 + p{
+    margin-top:8px;
+}
+
+.about h3 + p{
+    margin-top:8px;
+}
+
+/* divider */
+
+.about hr{
+    border:none;
+    height:1px;
+    background:#e5eaf0;
+    margin:35px 0;
+}
+
+
+/* ===== FOOTER ===== */
+
+.site-footer{
+    margin-top:40px;
+    font-family:'Poppins',sans-serif;
+    color:#4b5563;
+}
+
+/* Main Footer */
+
+.footer-container{
+    background:#f8fafc;
+    border-top:1px solid #e5e7eb;
+    padding:14px 0;
+}
+
+/* Links layout - single line */
+
+.footer-links{
+    max-width:700px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;              /* space between links */
+    flex-wrap:wrap;        /* wraps only on very small screens */
+}
+
+/* Links */
+
+.footer-links a{
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    color:#374151;
+    transition:.2s;
+}
+
+.footer-links a:hover{
+    color:#2563eb;
+}
+
+/* Bottom copyright */
+
+.footer-bottom{
+    background:#f1f5f9;
+    text-align:center;
+    padding:8px 0;
+    font-size:12.5px;
+    color:#6b7280;
+    border-top:1px solid #e5e7eb;
+}
+/* GRID LAYOUT */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.modern-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c3e50;
+    
+    padding: 14px 12px;
+    border-radius: 12px;
+
+    background: linear-gradient(145deg, #f8fafc, #eef2f7);
+    border: 1px solid #e2e8f0;
+
+    box-shadow: 
+        0 2px 6px rgba(0,0,0,0.05),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER - smooth premium feel */
+.modern-link:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: #ffffff;
+    border-color: transparent;
+
+    transform: translateY(-3px);
+
+    box-shadow: 
+        0 10px 25px rgba(0, 114, 255, 0.25);
+}
+
+/* CLICK effect */
+.modern-link:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/*New Drop Down List*/
+/* MAIN DROPDOWN */
+.mega-dropdown {
+    position: relative;
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.mega-dropdown:hover .mega-menu {
+    display: block;
+}
+
+
+
+/* SUB DROPDOWN */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    left: 180px;
+
+     top:0;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-size: 13px; /* 👈 reduced text size */
+
+}
+
+/* SHOW ON HOVER */
+.sub-dropdown:hover .sub-menu {
+    display: block;
+}
+
+/* GRID STYLE */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.link-grid a {
+    text-decoration: none;
+    color: #2c3e50;
+    padding: 8px;
+    border-radius: 6px;
+    background: #f4f6f8;
+    display: block;
+    transition: 0.2s;
+}
+
+.link-grid a:hover {
+    background: #0072ff;
+    color: #fff;
+}
+.tick{
+    color: SteelBlue;
+
+}
+.tick1{
+    color: SteelBlue;
+
+}
+</style>
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    let slides = document.querySelectorAll(".mini-slide");
+    let dots = document.querySelectorAll(".mini-dots span");
+    let index = 0;
+
+    function showSlide(i){
+        slides.forEach(s => s.classList.remove("active"));
+        dots.forEach(d => d.classList.remove("active"));
+
+        slides[i].classList.add("active");
+        dots[i].classList.add("active");
+    }
+
+    function nextSlide(){
+        index = (index + 1) % slides.length;
+        showSlide(index);
+    }
+
+    setInterval(nextSlide, 3000);
+
+    // dot click
+    dots.forEach((dot, i)=>{
+        dot.addEventListener("click", ()=>{
+            index = i;
+            showSlide(index);
+        });
+    });
+
+});
+
+</script></head> 
+<body>
+
+    
+<div id="top-loader">
+    <div class="top-loader-bar"></div>
+</div>
+
+
+<header>
+    <div class="container nav">
+        <div class="nav-left">
+             <a href="index.html">
+            <img src="images/logo.png" class="logo" alt="Lotus GeoSolutions Logo">
+        </a>
+            <div class="company-name">Lotus GeoSolutions Pvt Ltd</div>
+        </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About_us.html">About us</a></li>
+
+        <li class="mega-dropdown">
+            <a href="Services.html">Services ⮟</a>
+            <div class="mega-menu">
+                <ul>
+                    <li><a href="Services.html#photogrammetry">Photogrammetry</a></li>
+                    <li><a href="Services.html#lidar">LiDAR</a></li>
+                    <li><a href="Services.html#GIS">GIS</a></li>
+                    <li><a href="Services.html#ORTHO">Orthophoto</a></li>
+                    <li><a href="Services.html#BIM">3D Modeling</a></li>
+                </ul>
+            </div>
+        </li>
+
+<li class="mega-dropdown">
+  <a href="Projects.html">Projects ⮟</a>
+
+  <div class="mega-menu">
+    <ul>
+      
+      <!-- SUB DROPDOWN -->
+      <li class="sub-dropdown">
+        <a href="Projects.html#project-experience">Project Experience ➢</a>
+
+        <div class="sub-menu">
+          <ul class="mega-menu">
+            <li><a href="Projects.html#infrastructure-transportation">Infrastructure & Transportation</a></li>
+            <li><a href="Projects.html#Urban Planning-Smart Cities">Urban Planning & Smart Cities</a></li>
+            <li><a href="Projects.html#Mining-Quarry">Mining & Quarry</a></li>
+            <li><a href="Projects.html#Power-Utilities">Power & Utilities</a></li>
+            <li><a href="Projects.html#Oil-Gas">Oil & Gas / Energy</a></li>
+            <li><a href="Projects.html#Construction">Construction & Real Estate</a></li>
+            <li><a href="Projects.html#Agriculture">Agriculture & Forestry</a></li>
+            <li><a href="Projects.html#Disaster">Disaster Management & Environment</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- NORMAL LINK -->
+      <li>
+        <a href="Projects.html#projects-executed">Projects Executed</a>
+      </li>
+
+    </ul>
+  </div>
+</li>
+
+
+         <li><a href="Contactus.html">Contact</a></li>
+    </ul>
+ <div class="theme-switch">
+    <span>Light</span>
+
+    <label class="switch">
+        <input type="checkbox" id="darkToggle">
+        <span class="slider"></span>
+    </label>
+
+    <span>Dark</span>
+</div>
+
+
+</div>
+</header>
+
+
+<section class="mini-hero-slider">
+    
+    <div class="mini-slide active" style="background-image:url('Images/Office/Final/1.png')"></div>
+    <div class="mini-slide" style="background-image:url('Images/Office/Final/2.png')"></div>
+    <div class="mini-slide" style="background-image:url('Images/Office/Final/3.png')"></div>
+
+
+    <!-- optional dots -->
+    <div class="mini-dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</section>
+
+<section class="about">
+    <div class="container about-wrapper">
+
+        <div class="about-text">
+            <div class="section-title">
+    
+      
+<h2><u>🚀About us  </u></h2>
+
+            <p>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Founded in 1999, Lotus Geo began with photogrammetric compilation services using two AMH analytical plotters and has evolved into a full-spectrum geospatial solutions provider.
+            </p>
+
+            <p>
+Today, we integrate: </p>
+
+
+
+<p> <span class="tick">➤ <strong>Aerial & terrestrial photogrammetry</strong> </span></p>
+<p> <span class="tick">➤ <strong>LiDAR and point cloud processing</strong></span></p>
+<p> <span class="tick">➤ <strong>Satellite & drone imagery</strong></span> </p>
+<p> <span class="tick">➤ <strong>Advanced GIS workflows</strong> </span></p>
+
+<br>
+
+
+
+       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our strength lies in combining deep technical expertise, structured processes, and cutting-edge tools to deliver consistent, high-quality results.</p>
+<br>
+<p>
+<span class="tick"><strong>✔ ISO 9001:2008 Certified</strong></span></p>
+
+<p>
+<span class="tick"><strong>✔ Global project experience</strong></span></p>
+
+<p>
+<span class="tick"><strong>✔ Proven delivery across complex terrains</strong></span></p>
+
+<br>
+<p><strong>
+Our Promise:</strong></p>
+
+
+
+<p><i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer-ready data. Delivered on time. Every time.
+</i></p>
+
+
+          
+<h2>💡 Why Lotus Geo</H2>
+
+<br>
+<p><span class="tick1"><strong>
+✔ 25+ Years of Proven Expertise </strong></span></p>
+<p> Decades of experience delivering reliable geospatial data across global markets. </p>
+
+<p><span class="tick1"><strong>
+✔ Precision-Driven Quality</strong></span></p>
+<p> Multi-level QA systems and continuous validation ensure unmatched accuracy. </p>
+
+<p><span class="tick1"><strong>
+✔ Faster Turnaround Times</strong></span></p>
+<p>Optimized workflows and 24/7 operations accelerate project delivery. </p>
+
+
+<p><span class="tick1"><strong>
+✔ In-House Technology Advantage</strong></span></p>
+<p>Custom-built tools improve efficiency, reduce errors, and enhance output quality. </p>
+
+<p><span class="tick1"><strong>
+✔ Client-Centric Execution</strong></span></p>
+<p>Dedicated point of contact, transparent communication, and real-time updates. </p>
+
+<p><span class="tick1"><strong>
+✔ Cost-Effective Solutions</strong></span></p>
+<p>Streamlined processes that minimize rework and maximize value. </p>
+
+
+<h2>👥 Who We Are</H2>
+
+<br>
+
+<p>•	A team of 70+ geospatial professionals </p>
+<p>•	Experts in multi-domain mapping technologies </p>
+
+<p>•    Operating in 24/7 production environments </p>
+
+<p>•    Focused on accuracy, scalability, and reliability </p>
+
+<p><i>We don’t just deliver data—we deliver confidence in every dataset.</i> </p>
+
+
+
+          
+</div>
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="About_us.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Contactus.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Lotus Geo Solution Pvt Ltd. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script src="Script/Myscript.js"></script>
+</body>
+</html>

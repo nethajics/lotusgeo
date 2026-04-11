@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lotus GeoSolutions</title>
+<link rel="stylesheet" href="Style/Stylesheet.css">
+<style>
+/* ================= RESET ================= */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url("Images/Backgroud_Img/33.jpg") no-repeat center center fixed;
+    background-size: cover;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* ================= MAIN CONTAINER ================= */
+
+.about {
+    background: rgba(255,255,255,0.96);
+    margin: 70px auto;
+    padding: 60px 70px;
+    width: 85%;
+    max-width: 1200px;
+    border-radius: 16px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.2);
+    backdrop-filter: blur(6px);
+    animation: fadeIn 0.7s ease;
+}
+
+/* ================= TITLES ================= */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #1b3556;
+    display: inline-block;
+    padding-bottom: 8px;
+    border-bottom: 4px solid #1f7ae0;
+}
+
+/* ================= HEADINGS ================= */
+
+h3 {
+    font-size: 26px;
+    color: #1b3556;
+    margin: 40px 0 15px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e5ecf7;
+}
+
+
+h5 {
+    font-size: 26px;
+    color: #1b3556;
+    margin: 40px 0 15px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e5ecf7;
+ text-align:center;
+}
+h4 {
+    font-size: 17px;
+    color: #1f7ae0;
+    margin: 30px 0 10px;
+    background: #f4f8ff;
+    padding: 10px 14px;
+    border-left: 4px solid #1f7ae0;
+    border-radius: 6px;
+}
+
+/* ================= TEXT ================= */
+
+.about p {
+    font-size: 15px;
+    margin-bottom: 12px;
+    max-width: 1200px;
+}
+
+/* ================= DIVIDER ================= */
+
+.about hr {
+    border: none;
+    height: 1px;
+    background: #e6e6e6;
+    margin: 30px 0;
+}
+
+/* ================= IMAGE ================= */
+
+.popup-img {
+    width: 100%;
+    max-width: 450px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.popup-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* ================= BEFORE / AFTER SLIDER ================= */
+
+
+/* ================= ROW ================= */
+
+.slider-row {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 40px auto;
+}
+
+
+/* ================= SLIDER ================= */
+
+.slider-container {
+    position: relative;
+    width: 420px;              /* 👈 wider */
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+
+/* ================= IMAGES ================= */
+
+.slider-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Top image */
+.top-img {
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    transition: clip-path 0.12s ease-out;
+    z-index: 2;
+}
+/* dark mode*/
+
+/* switch container */
+.switch{
+    position:relative;
+    display:inline-block;
+    width:52px;
+    height:26px;
+}
+
+/* hide checkbox */
+.switch input{
+    opacity:0;
+    width:0;
+    height:0;
+}
+
+/* track */
+.slidera{
+    position:absolute;
+    cursor:pointer;
+    inset:0;
+    background:#cfd8dc;
+    border-radius:50px;
+    transition:.3s;
+}
+
+/* knob */
+.slidera::before{
+    content:"";
+    position:absolute;
+    height:20px;
+    width:20px;
+    left:3px;
+    top:3px;
+    background:white;
+    border-radius:50%;
+    transition:.3s;
+    box-shadow:0 2px 6px rgba(0,0,0,.25);
+}
+
+/* ON state */
+.switch input:checked + .slidera{
+    background:#009688;
+}
+
+.switch input:checked + .slidera::before{
+    transform:translateX(26px);
+}
+/* ================= SLIDER INPUT ================= */
+
+.slider {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    cursor: ew-resize;
+
+    opacity: 0;              /* 👈 KEY FIX */
+    -webkit-appearance: none;
+    appearance: none;
+
+    z-index: 3;
+}
+
+
+
+/* ================= DIVIDER ================= */
+
+.slider-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: var(--position, 50%);
+    width: 2px;
+    height: 100%;
+    background: #fff;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+
+/* ================= ARROWS ================= */
+
+.slider-container::after {
+    content: "◀ ▶";
+    position: absolute;
+    top: 50%;
+    left: var(--position, 50%);
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 8px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    z-index: 5;
+}
+
+/* ================= LINK GRID ================= */
+
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    list-style: none;
+}
+
+.modern-link {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #2c3e50;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: linear-gradient(145deg, #f8fafc, #eef2f7);
+    transition: all 0.25s ease;
+}
+
+.modern-link:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,114,255,0.25);
+}
+
+/* ================= FOOTER ================= */
+
+.site-footer {
+    margin-top: 40px;
+}
+
+.footer-container {
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+    padding: 14px 0;
+}
+
+.footer-links {
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #374151;
+}
+
+.footer-links a:hover {
+    color: #2563eb;
+}
+
+.footer-bottom {
+    background: #f1f5f9;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12.5px;
+    color: #6b7280;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .about {
+        width: 94%;
+        padding: 35px 25px;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    .link-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .slider-container {
+        height: 300px;
+    }
+}
+/*New Drop Down List*/
+/* MAIN DROPDOWN */
+.mega-dropdown {
+    position: relative;
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.mega-dropdown:hover .mega-menu {
+    display: block;
+}
+
+
+
+/* SUB DROPDOWN */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    left: 180px;
+     top:0;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-size: 13px; /* 👈 reduced text size */
+
+}
+
+/* SHOW ON HOVER */
+.sub-dropdown:hover .sub-menu {
+    display: block;
+}
+.tick{
+    color: green;
+    font-weight: bold;
+}
+
+.advantages{
+    padding:0px 0;
+    background:#ffffff;
+}
+
+.adv-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:0px;
+}
+
+.advantages ul{
+    list-style:none;
+}
+
+.advantages ul li{
+    margin-bottom:18px;
+    padding-left:28px;
+
+    position:relative;
+    font-size:16px;
+}
+
+.advantages ul li::before{
+    content:"✔";
+    position:absolute;
+    left:0;
+    color:#0b5d7c;
+    font-weight:bold;
+}
+
+</style>
+
+</head> 
+<body>
+
+    
+<div id="top-loader">
+    <div class="top-loader-bar"></div>
+</div>
+
+<header>
+    <div class="container nav">
+        <div class="nav-left">
+             <a href="index.html">
+            <img src="images/logo.png" class="logo" alt="Lotus GeoSolutions Logo">
+        </a>
+            <div class="company-name">Lotus GeoSolutions Pvt Ltd</div>
+        </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About_us.html">About us</a></li>
+
+        <li class="mega-dropdown">
+            <a href="Services.html">Services ⮟</a>
+            <div class="mega-menu">
+                <ul>
+                    <li><a href="Services.html#photogrammetry">Photogrammetry</a></li>
+                    <li><a href="Services.html#lidar">LiDAR</a></li>
+                    <li><a href="Services.html#GIS">GIS</a></li>
+                    <li><a href="Services.html#ORTHO">Orthophoto</a></li>
+                    <li><a href="Services.html#BIM">3D Modeling</a></li>
+                </ul>
+            </div>
+        </li>
+
+<li class="mega-dropdown">
+  <a href="Projects.html">Projects ⮟</a>
+
+  <div class="mega-menu">
+    <ul>
+      
+      <!-- SUB DROPDOWN -->
+      <li class="sub-dropdown">
+        <a href="Projects.html#project-experience">Project Experience ➢</a>
+
+        <div class="sub-menu">
+          <ul class="mega-menu">
+            <li><a href="Projects.html#infrastructure-transportation">Infrastructure & Transportation</a></li>
+            <li><a href="Projects.html#Urban Planning-Smart Cities">Urban Planning & Smart Cities</a></li>
+            <li><a href="Projects.html#Mining-Quarry">Mining & Quarry</a></li>
+            <li><a href="Projects.html#Power-Utilities">Power & Utilities</a></li>
+            <li><a href="Projects.html#Oil-Gas">Oil & Gas / Energy</a></li>
+            <li><a href="Projects.html#Construction">Construction & Real Estate</a></li>
+            <li><a href="Projects.html#Agriculture">Agriculture & Forestry</a></li>
+            <li><a href="Projects.html#Disaster">Disaster Management & Environment</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- NORMAL LINK -->
+      <li>
+        <a href="Projects.html#projects-executed">Projects Executed</a>
+      </li>
+
+    </ul>
+  </div>
+</li>
+
+
+         <li><a href="Contactus.html">Contact</a></li>
+    </ul>
+ <div class="theme-switch">
+    <span>Light</span>
+
+    <label class="switch">
+        <input type="checkbox" id="darkToggle">
+        <span class="slidera"></span>
+    </label>
+
+    <span>Dark</span>
+</div>
+
+
+</div>
+</header>
+
+
+
+<section class="about" id="Project Experience">
+    <div class="container about-wrapper">
+        <div class="about-text">
+            <div class="section-title">
+ 
+            </div>
+<h5 style="font-family: 'Times New Roman', sans-serif;">
+    Lotus Geo, One Mapping Partner for All Industries
+</h5>
+
+<h3>🌍Project Experience</h3>
+
+
+
+
+            <li>
+              	We have successfully executed global projects meeting stringent specifications, diverse terrain conditions, and interpretation challenges posed by varying flight conditions. Our team is experienced in North American, Canadian, British, European, and Middle Eastern terrains and ground feature interpretations. Notably, 
+            </p>
+
+            <li>
+            we completed a large-scale 25,000 sq. km mapping project on-site with 35+ professionals over three years, managing all logistical responsibilities.  </p>
+
+
+<br>
+<br>
+
+<ul class="link-grid">
+  <li><a href="Projects.html#infrastructure-transportation" class="modern-link">Infrastructure & Transportation</a></li>
+  <li><a href="Projects.html#Urban Planning-Smart Cities" class="modern-link">Urban Planning & Smart Cities</a></li>
+  <li><a href="Projects.html#Mining-Quarry" class="modern-link">Mining & Quarry</a></li>
+  <li><a href="Projects.html#Power-Utilities" class="modern-link">Power & Utilities</a></li>
+
+  <li><a href="Projects.html#Oil-Gas" class="modern-link">Oil & Gas / Energy</a></li>
+  <li><a href="Projects.html#Construction" class="modern-link">Construction & Real Estate</a></li>
+  <li><a href="Projects.html#Agriculture" class="modern-link">Agriculture & Forestry</a></li>
+  <li><a href="Projects.html#Disaster" class="modern-link">Disaster Management & Environment</a></li>
+</ul>
+<section  class="advantages"  id="infrastructure-transportation">
+<br>
+<br>
+<h4>🚧 Infrastructure & Transportation</h4>
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;
+
+Lotus Geo provides mapping services for infrastructure and transportation to analyze accurate location-based data for planning, design, construction, operation, and maintenance of transport networks and public infrastructure.</p>
+
+        <div class="adv-grid">
+
+            <ul>
+                <li>Terrain model before construction for Corridor planning. </li>
+                <li>Best path for road/rail for Route alignment.</li>
+                <li>Digital map of signals, poles and drains for Asset inventory. </li>
+                <li>3D modelling for Renovation & Rehabilitation Projects, Asset Management & Maintenance.</li>
+            
+            </ul>
+
+<img src="Images/Projects/Infra3.png" class="popup-img">
+</div>
+
+</section>
+
+<section class="advantages" id="Urban Planning-Smart Cities">
+<br>
+<br>
+
+<h4>🏙 Urban Planning & Smart Cities</h4>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Delivers geospatial mapping solutions that support city planners and municipalities in managing urban growth, zoning, utilities, mobility, and public services. Our spatial data helps authorities visualize land use, population distribution, and infrastructure networks for smarter and sustainable city development.</p>
+ 
+  <div class="adv-grid">
+
+  <ul>
+ <li>Building footprint extraction to figure out Illegal buildings.</li>
+ <li>GIS parcel mapping for property tax  </li>
+<li>Power line Classification & Vectorization </li>
+<li>Elevation model for drainage planning.</li>
+ <li>Zoning & land-use classification for Town planning </li>
+ </ul>
+
+<img src="Images/Projects/urbanplan.jpeg" class="popup-img">
+</div>
+</section>
+<section class="advantages" id="Mining-Quarry">
+<br>
+<br>
+<h4>⛏ Mining & Quarry</h4>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Provides high-precision terrain mapping and volumetric analysis for mining and quarry operations. We help monitor excavation progress, calculate stockpile volumes, plan haul roads, and ensure safety and regulatory compliance.</p>
+   <div class="adv-grid">
+
+ <ul>
+ <li>Monthly inventory calculation for Stockpile measurement.</li>
+<li>Pit wall monitoring for Over-excavation risk.  </li>
+ <li>Slope stability analysis for Safety compliance.   </li>
+<li>Accurate excavation quantity for Production reporting</li>
+  </ul>
+
+<img src="Images/Projects/mining.png" class="popup-img">
+</div>
+</section>
+<section  class="advantages" id="Power-Utilities">
+<br>
+<br>
+
+<h4>⚡ Power & Utilities</h4>
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Supports power and utility companies with accurate mapping of transmission lines, substations, pipelines, and underground utilities. Our geospatial data helps in network planning, asset management, inspection, and maintenance to minimize outages and improve operational reliability.</p>
+  <div class="adv-grid">
+
+  <ul>
+ <li>Obstacles detection for Transmission line routing.</li>
+ <li>&nbsp;&nbsp;Safety compliance for Vegetation clearance. </li>
+<li>&nbsp;&nbsp;Terrain slope & shading for Solar plant design. </li>
+ <li>&nbsp;&nbsp;Avoid settlements for Pipeline planning.</li>
+ <li>&nbsp;&nbsp;Pole/tower inventory for Asset maintenance.</li>
+  </ul>
+<img src="Images/Projects/Power.jpg" class="popup-img">
+</div>
+</section>
+<section  class="advantages" id="Oil-Gas">
+<br>
+<br>
+<h4>🛢Oil & Gas / Energy</h4>
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;For exploration, pipeline routing, facility planning, and monitoring of energy infrastructure Lotus Geo delivers mapping solutions. Our services provide terrain intelligence, right-of-way mapping, and risk assessment to support safe and compliant energy operations.</p>
+  <div class="adv-grid">
+
+<ul>
+<li>Accurate plant model for Plant modification.</li>
+<li>Hazard zone mapping for Safety purpose.</li>
+<li>BIM modeling for Inspection. </li>
+ </ul>
+
+<img src="Images/Projects/Oil.jpeg" class="popup-img">
+</div>
+
+</section>
+
+
+
+<section class="advantages" id="Construction">
+<br>
+<br>
+<h4>🏗 Construction & Real Estate</h4>
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Lotus Geo offers contour mapping, progress monitoring, and as-built documentation for construction and real estate projects. Accurate spatial data helps developers, architects, and contractors plan projects correctly and track development stages.</p>
+  <div class="adv-grid">
+
+            <ul>
+ <li>Contour & grading for Pre-construction</li>
+ <li>BIM base model for Design.</li>
+ <li>Progress tracking for Construction  </li>
+ <li>3D visualization for Sales  </li>
+ <li>As-built drawings for Completion </li>
+    </ul>
+
+<img src="Images/Projects/Cons.png" class="popup-img">
+</div>
+</section>
+
+<section  class="advantages" id="Agriculture">
+<br>
+<br>
+<h4>🌾 Agriculture & Forestry</h4>
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Lotus Geo provides geospatial mapping for crop monitoring, land assessment, irrigation planning, and forest management. Our data helps optimize productivity, manage resources, and monitor environmental conditions.</p>
+  <div class="adv-grid">
+
+            <ul>
+ <li>Elevation model for Irrigation planning.</li>
+ <li>Tree inventory for Plantation counting.</li>
+ <li>Area calculation for Yield estimation  </li>
+    </ul>
+
+<img src="Images/Projects/Agri.png" class="popup-img">
+</div>
+</section>
+<section class="advantages" id="Disaster">
+<br>
+<br>
+<h4>🌪 Disaster Management & Environment</h4>
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;Lotus Geo supports authorities with mapping for flood zones, landslide risk, environmental monitoring, and damage assessment. Our rapid data collection enables preparedness planning and faster response during emergencies.</p>
+   <div class="adv-grid">
+
+            <ul>
+ <li>Water spread mapping for Flood.</li>
+ <li>Damage assessment for Earthquake.</li>
+
+ <li>Relief planning for Cyclone. </li>
+    </ul>
+<img src="Images/Projects/Disaster.png" class="popup-img">
+</div>
+</section>
+
+
+
+<h4>📊 Our Impact</h4>
+
+<p>&nbsp;&nbsp;<span class="tick">✔&nbsp;&nbsp;</span> Successfully delivered large-scale global projects</p>
+<p>&nbsp;&nbsp;<span class="tick">✔&nbsp;&nbsp;</span> Expertise across North America, Europe, Middle East</p>
+<p>&nbsp;&nbsp;<span class="tick">✔&nbsp;&nbsp;</span> Managed 25,000+ sq. km mapping project with on-site execution</p>
+<p>&nbsp;&nbsp;<span class="tick">✔&nbsp;&nbsp;</span> Trusted by clients for accuracy, reliability, and consistency</p>
+</section>
+</div>
+
+
+
+<section class="about"  id="projects-executed">
+
+<h3>Projects Executed</h3>
+<h4>Photogrammetry: Sample projects executed</h4>
+
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;We have executed numerous photogrammetry projects using advanced aerial triangulation, dense image matching, and 3D surface reconstruction techniques. Our team has consistently delivered high-accuracy geospatial outputs aligned with industry standards, supporting complex mapping and modeling requirements across varied terrains.</p>
+ 
+<div class="advantages">
+   <div class="adv-grid">
+
+            <ul>
+ <li>Topographic & Land Surface Mapping </li>
+<li>Transportation & Infrastructure Planning </li>
+ <li>Water Resources & Hydrology  </li>
+<li>Mine Mapping </li>
+<li>Urban Mapping </li>
+<li>Agriculture & Forestry   </li>
+<li>Disaster Management  </li>
+<li>Layout Mapping  </li>
+ <li>LOD ( Building footprint)   </li>
+ <li>Building Facades   </li>
+ </ul>
+</div>
+</div>
+<div class="slider-row">
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/PGY/Building_Arc_View_IN.png">
+        <img class="top-img" src="Images/Services/Before&After/PGY/Building_Arc_View_OUT.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/PGY/Hydro_in.png">
+        <img class="top-img" src="Images/Services/Before&After/PGY/Hydro_out.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+</div>
+<div class="slider-row">
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/PGY/Agriculturein.png">
+        <img class="top-img" src="Images/Services/Before&After/PGY/Agricultureout.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/PGY/Trans_in.png">
+        <img class="top-img" src="Images/Services/Before&After/PGY/Trans_out.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/PGY/Road_Networkin.png">
+        <img class="top-img" src="Images/Services/Before&After/PGY/Road_Networkout.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+
+</div>
+<h4>LiDAR: Sample projects executed</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;We possess extensive hands-on experience in LiDAR data processing, including point cloud classification, feature extraction, and terrain modeling. Our workflows are optimized for handling high-density datasets, ensuring precise segmentation and reliable outputs for engineering and infrastructure applications.</p>
+<div class="advantages">
+   <div class="adv-grid">
+
+            <ul>
+ <li>Bare earth extraction </li>
+
+ <li>Building Classification </li>
+<li>Water Classification   </li>
+<li>Power line Classification & Vectorization</li>
+ <li>Transportation  </li>
+<li>Infrastructure  </li>
+<li>Transmission & distribution, etc. </li>
+<li>Utility Mapping  </li>
+ </ul>
+</div>
+</div>
+
+<div class="slider-row">
+
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Lidar/Advanced_input.png">
+        <img class="top-img" src="Images/Services/Before&After/Lidar/Advanced_output.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Lidar/Powerline_input_1.png">
+        <img class="top-img" src="Images/Services/Before&After/Lidar/Powerline_output_1.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+</div>
+
+
+<div class="slider-row">
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Lidar/Classification_input.png">
+        <img class="top-img" src="Images/Services/Before&After/Lidar/Classification_output.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Lidar/Powerline_input.png">
+        <img class="top-img" src="Images/Services/Before&After/Lidar/Powerline_output.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Lidar/Advanced_Classification_input.png">
+        <img class="top-img" src="Images/Services/Before&After/Lidar/Advanced_Classification_output.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+
+
+
+</div>
+
+
+
+<h4>GIS: Sample projects executed</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;
+Our GIS team has delivered end-to-end geospatial solutions involving data capture, spatial analysis, and database management. We have successfully implemented robust GIS workflows for large-scale projects, ensuring data integrity, accuracy, and seamless integration with client systems.
+</p>
+<div class="advantages">
+   <div class="adv-grid">
+
+            <ul>
+ <li>Public Area Garden Mapping  </li>
+
+<li>Access features update  </li>
+
+<li>Hydro features update  </li>
+<li>Cadastral Mapping</li>
+ <li>Survey of changes in urban area  </li>
+ <li>Attributes update  </li>
+<li>CAD editing and readable text </li>
+ <li>Land Cover Mapping </li>
+ <li>Building footprints </li>
+ </ul>
+</div>
+</div>
+
+<div class="slider-row">
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/GIs/Public area garden mapping_IN.png">
+        <img class="top-img" src="Images/Services/Before&After/GIs/Public area garden mapping_OT.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/GIs/CAD editing and readable text _IN.png">
+        <img class="top-img" src="Images/Services/Before&After/GIs/CAD editing and readable text _OUT.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+</div>
+
+<div class="slider-row">
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/GIs/changes in urban area_2018_IN.png">
+        <img class="top-img" src="Images/Services/Before&After/GIs/changes in urban area_2018_OUT.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/GIs/Building footprint-Update_IN.png">
+        <img class="top-img" src="Images/Services/Before&After/GIs/Building footprint-Update_OUT.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/GIs/Cadastral Mapping_IN.png">
+        <img class="top-img" src="Images/Services/Before&After/GIs/Cadastral Mapping_OUT.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+ 
+</div>
+
+<h4>Orthophoto: Sample projects executed</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;We have generated high-resolution orthophotos using rigorous photogrammetric correction techniques and sensor calibration methods. Our production pipelines ensure geometrically accurate and radiometrically consistent outputs suitable for detailed analysis and decision-making</p>
+<div class="advantages">
+   <div class="adv-grid">
+
+            <ul>
+ <li>Drone, Satellite & Aerial Orthophotos</li>
+<li>3-Band & 4-Band Outputs </li>
+ <li>Pan-Sharpened Imagery </li>
+<li>True Orthophotos</li>
+<li>Mine Orthophoto</li>
+<li>Dense urban with high-rise buildings and long bridges Orthophoto </li>
+<li>Rail-way corridor Orthophoto</li>
+ </ul>
+</div>
+</div>
+
+<div class="slider-row">
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Ortho/Dense urban/Before.png">
+        <img class="top-img" src="Images/Services/Before&After/Ortho/Dense urban/After.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Ortho/4 Band Orthophoto/Before.png">
+        <img class="top-img" src="Images/Services/Before&After/Ortho/4 Band Orthophoto/After.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+</div>
+<div class="slider-row">
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Ortho/Aerial Orthophoto/Before.png">
+        <img class="top-img" src="Images/Services/Before&After/Ortho/Aerial Orthophoto/After.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Ortho/Mine Orthophoto/Before.png">
+        <img class="top-img" src="Images/Services/Before&After/Ortho/Mine Orthophoto/After.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/Ortho/Pan/Before.png">
+        <img class="top-img" src="Images/Services/Before&After/Ortho/Pan/After.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+</div>
+
+<div class="slider-row">
+
+
+
+
+
+</div>
+<h4>BIM: Sample projects executed</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;We have executed multiple BIM projects involving detailed 3D modeling and LOD-based development. Our expertise includes integrating architectural, structural, and MEP components into coordinated models that support efficient design, construction, and asset management.</p>
+<div class="advantages">
+   <div class="adv-grid">
+
+            <ul>
+<li>Oil well </li>
+ <li>Tunnel </li>
+ <li>All structural parts of buildings  </li>
+<li>Internal and External components of architectural buildings</li>
+ <li>Oil storage tank and piping </li>
+ <li>Pumping station, etc.</li>
+ </ul>
+</div>
+</div>
+
+
+<div class="slider-row">
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/BIM/Point cloud to 3d model input.png">
+        <img class="top-img" src="Images/Services/Before&After/BIM/Point cloud to 3d model output.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/BIM/9_After.png">
+        <img class="top-img" src="Images/Services/Before&After/BIM/9_Before.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+
+</div>
+<div class="slider-row">
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/BIM/Ceiling Plan Input.png">
+        <img class="top-img" src="Images/Services/Before&After/BIM/Ceiling Plan Output.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/BIM/10_In.png">
+        <img class="top-img" src="Images/Services/Before&After/BIM/10_Out.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+    <div class="slider-container">
+        <img src="Images/Services/Before&After/BIM/11_In_F.png">
+        <img class="top-img" src="Images/Services/Before&After/BIM/11_out_F.png">
+        <input type="range" min="0" max="100" value="50" class="slider">
+    </div>
+
+
+</div>
+
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="About_us.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Contactus.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Lotus Geo Solution Pvt Ltd. All Rights Reserved.
+    </div>
+</footer>
+<script src="Script/Myscript.js"></script>
+</body>
+</html>

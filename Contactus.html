@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Wonder Geo</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<link rel="stylesheet" href="Style/Stylesheet.css">
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+//* ========================= */
+/* CONTACT PAGE */
+/* ========================= */
+
+.contact-section{
+padding:90px 0;
+background:linear-gradient(180deg,#f4f7f9,#eef3f6);
+}
+
+/* MAIN GRID */
+
+.contact-main-wrapper{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:50px;
+align-items:start;
+}
+
+/* ========================= */
+/* LEFT FORM CARD */
+/* ========================= */
+
+.contact-left{
+background:#ffffff;
+padding:45px;
+border-radius:14px;
+box-shadow:0 20px 50px rgba(0,0,0,.08);
+border:1px solid #e6edf3;
+}
+
+/* HEADER */
+
+.contact-header h2{
+font-size:32px;
+color:#0b3c4c;
+margin-bottom:10px;
+font-weight:700;
+}
+
+.contact-header p{
+color:#6b7b88;
+font-size:15px;
+line-height:1.6;
+margin-bottom:35px;
+}
+
+/* ========================= */
+/* FORM */
+/* ========================= */
+
+.form-row{
+display:flex;
+gap:20px;
+margin-bottom:20px;
+}
+
+.form-group{
+flex:1;
+display:flex;
+flex-direction:column;
+}
+
+.form-group label{
+font-size:13px;
+font-weight:600;
+margin-bottom:6px;
+color:#445566;
+}
+
+/* INPUT */
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+padding:14px 15px;
+border:1px solid #dce5ec;
+border-radius:7px;
+font-size:14px;
+background:#fff;
+outline:none;
+transition:border .2s, box-shadow .2s;
+}
+
+.contact-form textarea{
+resize:none;
+}
+
+/* INPUT FOCUS */
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+border-color:#16a085;
+box-shadow:0 0 0 3px rgba(22,160,133,.12);
+}
+
+/* BUTTON */
+
+.submit-wrapper{
+margin-top:10px;
+}
+
+.contact-btn{
+background:linear-gradient(135deg,#16a085,#138d75);
+color:#fff;
+padding:14px 35px;
+border:none;
+border-radius:7px;
+font-weight:600;
+font-size:15px;
+cursor:pointer;
+transition:.25s;
+}
+
+.contact-btn:hover{
+background:linear-gradient(135deg,#138d75,#0f6e5d);
+}
+
+/* ========================= */
+/* RIGHT SIDE */
+/* ========================= */
+
+.contact-right{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+/* MAP */
+
+.map-container{
+width:100%;
+height:420px;
+border-radius:14px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.12);
+border:1px solid #e6edf3;
+}
+
+#map{
+width:100%;
+height:100%;
+}
+
+/* CONTACT INFO */
+
+.contact-info{
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+border:1px solid #e6edf3;
+line-height:1.7;
+font-size:14px;
+color:#556677;
+}
+
+.contact-info p{
+margin-bottom:14px;
+}
+
+.contact-info strong{
+color:#1e2a38;
+font-weight:600;
+}
+
+/* ========================= */
+/* SOCIAL ICONS */
+/* ========================= */
+
+.social-contact{
+display:flex;
+gap:14px;
+margin-top:5px;
+}
+
+.social-icon{
+width:44px;
+height:44px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:18px;
+color:#fff;
+transition:.2s;
+}
+
+/* ICON COLORS */
+
+.whatsapp{background:#25D366;}
+.email{background:#ff6b6b;}
+.linkedin{background:#0A66C2;}
+
+.social-icon:hover{
+opacity:.85;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width:900px){
+
+.contact-section{
+padding:60px 20px;
+}
+
+.contact-main-wrapper{
+grid-template-columns:1fr;
+gap:35px;
+}
+
+.form-row{
+flex-direction:column;
+}
+
+.map-container{
+height:300px;
+}
+
+.contact-left{
+padding:35px;
+}
+
+}
+
+/* ===== FOOTER ===== */
+
+.site-footer{
+    margin-top:40px;
+    font-family:'Poppins',sans-serif;
+    color:#4b5563;
+}
+
+/* Main Footer */
+
+.footer-container{
+    background:#f8fafc;
+    border-top:1px solid #e5e7eb;
+    padding:14px 0;
+}
+
+/* Links layout - single line */
+
+.footer-links{
+    max-width:700px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;              /* space between links */
+    flex-wrap:wrap;        /* wraps only on very small screens */
+}
+
+/* Links */
+
+.footer-links a{
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    color:#374151;
+    transition:.2s;
+}
+
+.footer-links a:hover{
+    color:#2563eb;
+}
+
+/* Bottom copyright */
+
+.footer-bottom{
+    background:#f1f5f9;
+    text-align:center;
+    padding:8px 0;
+    font-size:12.5px;
+    color:#6b7280;
+    border-top:1px solid #e5e7eb;
+}
+/* GRID LAYOUT */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.modern-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c3e50;
+    
+    padding: 14px 12px;
+    border-radius: 12px;
+
+    background: linear-gradient(145deg, #f8fafc, #eef2f7);
+    border: 1px solid #e2e8f0;
+
+    box-shadow: 
+        0 2px 6px rgba(0,0,0,0.05),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER - smooth premium feel */
+.modern-link:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: #ffffff;
+    border-color: transparent;
+
+    transform: translateY(-3px);
+
+    box-shadow: 
+        0 10px 25px rgba(0, 114, 255, 0.25);
+}
+
+/* CLICK effect */
+.modern-link:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/*New Drop Down List*/
+/* MAIN DROPDOWN */
+.mega-dropdown {
+    position: relative;
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.mega-dropdown:hover .mega-menu {
+    display: block;
+}
+
+
+
+/* SUB DROPDOWN */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    left: 180px;
+
+     top:0;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-size: 13px; /* 👈 reduced text size */
+
+}
+
+/* SHOW ON HOVER */
+.sub-dropdown:hover .sub-menu {
+    display: block;
+}
+
+/* GRID STYLE */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.link-grid a {
+    text-decoration: none;
+    color: #2c3e50;
+    padding: 8px;
+    border-radius: 6px;
+    background: #f4f6f8;
+    display: block;
+    transition: 0.2s;
+}
+
+.link-grid a:hover {
+    background: #0072ff;
+    color: #fff;
+}
+.contact-left {
+    padding: 40px;
+}
+
+.contact-header h2 {
+    font-size: 28px;
+    color: #1e3a5f;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* underline effect */
+.contact-header h2::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #2b6cb0;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+}
+.contact-header {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+.contact-header h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a2a44;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* sub text container */
+.sub-text {
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* "for" text */
+.small-text {
+    display: block;
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 2px;
+
+    margin-left: 4px;
+}
+.company{
+    color: DarkSlateBlue;
+    font-weight: 600;
+font-size: 15px;
+}
+/* main highlight text */
+.highlight-text {
+    display: block;
+    font-size: 22px;
+    font-weight: 600;
+    color: DarkSlateBlue;
+    margin-top: 5px;
+}
+.contact-info p strong:first-child {
+    display: inline-block;
+    font-size: 16px;
+    color: #0d6efd; /* nice professional blue */
+    margin-bottom: 5px;
+}
+
+/* Optional: company name highlight */
+.contact-info p strong:nth-child(2) {
+    color: #222;
+    font-size: 15px;
+}
+
+/* General text styling */
+.contact-info p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div id="top-loader">
+    <div class="top-loader-bar"></div>
+</div>
+
+<header>
+    <div class="container nav">
+        <div class="nav-left">
+             <a href="index.html">
+            <img src="images/logo.png" class="logo" alt="Lotus GeoSolutions Logo">
+        </a>
+            <div class="company-name">Lotus GeoSolutions Pvt Ltd</div>
+        </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About_us.html">About us</a></li>
+
+        <li class="mega-dropdown">
+            <a href="Services.html">Services ⮟</a>
+            <div class="mega-menu">
+                <ul>
+                    <li><a href="Services.html#photogrammetry">Photogrammetry</a></li>
+                    <li><a href="Services.html#lidar">LiDAR</a></li>
+                    <li><a href="Services.html#GIS">GIS</a></li>
+                    <li><a href="Services.html#ORTHO">Orthophoto</a></li>
+                    <li><a href="Services.html#BIM">3D Modeling</a></li>
+                </ul>
+            </div>
+        </li>
+
+<li class="mega-dropdown">
+  <a href="Projects.html">Projects ⮟</a>
+
+  <div class="mega-menu">
+    <ul>
+      
+      <!-- SUB DROPDOWN -->
+      <li class="sub-dropdown">
+        <a href="Projects.html#project-experience">Project Experience ➢</a>
+
+        <div class="sub-menu">
+          <ul class="mega-menu">
+            <li><a href="Projects.html#infrastructure-transportation">Infrastructure & Transportation</a></li>
+            <li><a href="Projects.html#Urban Planning-Smart Cities">Urban Planning & Smart Cities</a></li>
+            <li><a href="Projects.html#Mining-Quarry">Mining & Quarry</a></li>
+            <li><a href="Projects.html#Power-Utilities">Power & Utilities</a></li>
+            <li><a href="Projects.html#Oil-Gas">Oil & Gas / Energy</a></li>
+            <li><a href="Projects.html#Construction">Construction & Real Estate</a></li>
+            <li><a href="Projects.html#Agriculture">Agriculture & Forestry</a></li>
+            <li><a href="Projects.html#Disaster">Disaster Management & Environment</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- NORMAL LINK -->
+      <li>
+        <a href="Projects.html#projects-executed">Projects Executed</a>
+      </li>
+
+    </ul>
+  </div>
+</li>
+
+
+         <li><a href="Contactus.html">Contact</a></li>
+    </ul>
+ <div class="theme-switch">
+    <span>Light</span>
+
+    <label class="switch">
+        <input type="checkbox" id="darkToggle">
+        <span class="slider"></span>
+
+    </label>
+
+    <span>Dark</span>
+</div>
+
+
+</div>
+</header>
+
+
+
+<section class="contact-section">
+
+    <div class="contact-main-wrapper">
+
+        <!-- LEFT SIDE - FORM -->
+        <div class="contact-left">
+
+            <div class="contact-header">
+                <h2>Contact us</h2>
+     <p class="sub-text">
+        <span class="small-text">for</span>
+       <i> <span class="highlight-text">&nbsp;&nbsp;&nbsp;&nbsp;Building Smarter Maps</span></i>
+    </p>
+                    
+         
+            </div>
+
+          <form class="contact-form" onsubmit="sendMail(event)">
+
+<div class="form-row">
+    <div class="form-group">
+        <label>First name</label>
+        <input type="text" id="firstName" placeholder="Enter first name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Last name</label>
+        <input type="text" id="lastName" placeholder="Enter last name" required>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" id="email" placeholder="Enter email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" id="phone" placeholder="00-000-000">
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="form-group">
+        <label>Country</label>
+        <input type="text" id="country" placeholder="Enter country">
+    </div>
+
+    <div class="form-group">
+        <label>Your company</label>
+        <input type="text" id="company" placeholder="Company name">
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Your position</label>
+    <select id="position">
+        <option>Employee</option>
+        <option>Manager</option>
+        <option>Director</option>
+        <option>Business Owner</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label>Message</label>
+    <textarea rows="5" id="message" placeholder="Write your message here..." required></textarea>
+</div>
+
+<div class="submit-wrapper">
+    <button type="submit" class="contact-btn">Send a request</button>
+</div>
+
+</form>
+
+        </div>
+
+
+        <!-- RIGHT SIDE - MAP + DETAILS -->
+        <div class="contact-right">
+
+            <div class="map-container">
+
+                <div id="map"></div>
+            </div>
+        <div class="contact-left">
+            <div class="contact-info">
+       
+                <p><strong>Address:</strong><br>
+<div class="company">Lotus Geosolutions Pvt. Ltd,</div>
+                
+                 26/1, Sowbhagya Complex, 3rd Floor,24th Main, 5th Phase,JP Nagar, Bangalore, Karnataka 560 078</p>
+
+
+                <p><strong>Phone:</strong><br>
+                +91-80-2659 6043<br>
+	        +91-80-2659 1209
+</p>
+
+                <p><strong>Email:</strong><br>
+                k.pushparaj@lotusgeo.in<br>
+                vinod@lotusgeo.in</p>
+
+                <p><strong>Working Hours:</strong><br>
+                Mon - Sat: 9:00 am – 06:00 pm<br>
+              </p>
+<div class="social-contact">
+ <a href="https://wa.me/918553153533" target="_blank" class="social-icon whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+<br>
+    <a href="mailto:k.pushparaj@lotusgeo.in" class="social-icon email">
+        <i class="fas fa-envelope"></i>
+    </a>
+<br>
+    <a href="https://in.linkedin.com/company/lotus-geo-solution-private-ltd" 
+       target="_blank" 
+       class="social-icon linkedin">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+            </div>
+
+</div>
+
+        </div>
+
+    </div>
+
+
+    </div>
+</section>
+
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="About_us.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Contactus.html">Contact</a>
+        </div>
+    </div>
+<footer class="site-footer">
+
+    <div class="footer-bottom">
+        © 2026 Lotus Geo Solution Pvt Ltd. All Rights Reserved.
+    </div>
+</footer>
+
+<script src="Script/Myscript.js"></script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    var map = L.map('map').setView([12.9038461, 77.5859047], 17);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([12.9038461, 77.5859047])
+        .addTo(map)
+        .bindPopup("Lotus Geosolution-JP Nagar")
+        .openPopup();
+</script>
+</body>
+</html>

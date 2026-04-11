@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Our Services - Lotus GeoSolutions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Style/Stylesheet.css">
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: url("Images/Backgroud_Img/1w.png") no-repeat center center fixed;
+    background-size: cover;
+
+}
+.advantages,
+
+.about{
+    background:#ffffff;
+    margin:60px auto;
+    padding:60px 80px;
+    width:92%;
+    max-width:1300px;
+    border-radius:14px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.08);
+},
+.cta{
+    background: rgba(255,255,255,0.95);
+    margin:60px auto;
+    border-radius:10px;
+    padding:40px 0;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    width:60%;
+}
+/* Image style */
+img.popup-img{
+    width:550px;
+    height:350px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Hover effect */
+img.popup-img:hover{
+    transform:scale(1.05);
+    box-shadow:0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* Popup container */
+.popup{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    align-items:center;
+    justify-content:center;
+}
+
+/* Popup image */
+.popup img{
+    max-width:80%;
+    max-height:80%;
+    border-radius:12px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.6);
+    animation:zoomIn 0.3s ease;
+}
+
+/* Close button */
+.popup .close{
+    position:absolute;
+    top:25px;
+    right:35px;
+    color:#fff;
+    font-size:40px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* Animation */
+@keyframes zoomIn{
+    from{transform:scale(0.7);}
+    to{transform:scale(1);}
+}
+
+
+/* ===== FOOTER ===== */
+
+.site-footer{
+    margin-top:40px;
+    font-family:'Poppins',sans-serif;
+    color:#4b5563;
+}
+
+/* Main Footer */
+
+.footer-container{
+    background:#f8fafc;
+    border-top:1px solid #e5e7eb;
+    padding:14px 0;
+}
+
+/* Links layout - single line */
+
+.footer-links{
+    max-width:700px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;              /* space between links */
+    flex-wrap:wrap;        /* wraps only on very small screens */
+}
+
+/* Links */
+
+.footer-links a{
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    color:#374151;
+    transition:.2s;
+}
+
+.footer-links a:hover{
+    color:#2563eb;
+}
+
+/* Bottom copyright */
+
+.footer-bottom{
+    background:#f1f5f9;
+    text-align:center;
+    padding:8px 0;
+    font-size:12.5px;
+    color:#6b7280;
+    border-top:1px solid #e5e7eb;
+}
+/* GRID LAYOUT */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.modern-link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #2c3e50;
+    
+    padding: 14px 12px;
+    border-radius: 12px;
+
+    background: linear-gradient(145deg, #f8fafc, #eef2f7);
+    border: 1px solid #e2e8f0;
+
+    box-shadow: 
+        0 2px 6px rgba(0,0,0,0.05),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+
+    transition: all 0.3s ease;
+}
+
+/* HOVER - smooth premium feel */
+.modern-link:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    color: #ffffff;
+    border-color: transparent;
+
+    transform: translateY(-3px);
+
+    box-shadow: 
+        0 10px 25px rgba(0, 114, 255, 0.25);
+}
+
+/* CLICK effect */
+.modern-link:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/*New Drop Down List*/
+/* MAIN DROPDOWN */
+.mega-dropdown {
+    position: relative;
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.mega-dropdown:hover .mega-menu {
+    display: block;
+}
+
+
+
+/* SUB DROPDOWN */
+.sub-dropdown {
+    position: relative;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    left: 180px;
+
+     top:0;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-size: 13px; /* 👈 reduced text size */
+
+}
+
+/* SHOW ON HOVER */
+.sub-dropdown:hover .sub-menu {
+    display: block;
+}
+
+/* GRID STYLE */
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.link-grid a {
+    text-decoration: none;
+    color: #2c3e50;
+    padding: 8px;
+    border-radius: 6px;
+    background: #f4f6f8;
+    display: block;
+    transition: 0.2s;
+}
+
+.link-grid a:hover {
+    background: #0072ff;
+    color: #fff;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+}
+
+.popup-content {
+    display: block;
+    margin: 5% auto;
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 8px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 35px;
+    cursor: pointer;
+}
+/* ===== BANNER CONTAINER (SMALL VERSION) ===== */
+.Bann {
+    width: 100%;
+    height: 25vh;           /* reduced height */
+    min-height: 160px;      /* smaller minimum */
+    max-height: 400px;      /* tighter max */
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;     /* slightly smaller radius */
+}
+
+/* ===== IMAGE ===== */
+.Bann img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 5s ease; /* slightly faster */
+}
+
+.Bann:hover img {
+    transform: scale(1.05); /* reduced zoom */
+}
+
+/* ===== OVERLAY ===== */
+.Bann::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.1)
+    );
+    z-index: 1;
+}
+
+/* ===== CONTENT ===== */
+.banner-content {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 6%;
+    transform: translateY(-50%);
+    color: #fff;
+    max-width: 380px;
+}
+
+/* smaller title */
+.banner-content h1 {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+}
+
+/* smaller text */
+.banner-content p {
+    font-size: 0.9rem;
+}
+
+/* smaller button */
+.banner-btn {
+    margin-top: 10px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .Bann {
+        height: 18vh;
+        min-height: 140px;
+    }
+
+    .banner-content h1 {
+        font-size: 1.2rem;
+    }
+
+    .banner-content p {
+        font-size: 0.8rem;
+    }
+}
+.bim-list{
+    text-align: center;
+}
+
+.tick1{
+    display: block;
+    margin: 8px 0;
+}
+.tick{
+    color: SteelBlue;
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="top-loader">
+    <div class="top-loader-bar"></div>
+</div>
+
+
+<header>
+    <div class="container nav">
+        <div class="nav-left">
+             <a href="index.html">
+            <img src="images/logo.png" class="logo" alt="Lotus GeoSolutions Logo">
+        </a>
+            <div class="company-name">Lotus GeoSolutions Pvt Ltd</div>
+        </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About_us.html">About us</a></li>
+
+        <li class="mega-dropdown">
+            <a href="Services.html">Services ⮟</a>
+            <div class="mega-menu">
+                <ul>
+                    <li><a href="Services.html#photogrammetry">Photogrammetry</a></li>
+                    <li><a href="Services.html#lidar">LiDAR</a></li>
+                    <li><a href="Services.html#GIS">GIS</a></li>
+                    <li><a href="Services.html#ORTHO">Orthophoto</a></li>
+                    <li><a href="Services.html#BIM">3D Modeling</a></li>
+                </ul>
+            </div>
+        </li>
+
+<li class="mega-dropdown">
+  <a href="Projects.html">Projects ⮟</a>
+
+  <div class="mega-menu">
+    <ul>
+      
+      <!-- SUB DROPDOWN -->
+      <li class="sub-dropdown">
+        <a href="Projects.html#project-experience">Project Experience ➢</a>
+
+        <div class="sub-menu">
+          <ul class="mega-menu">
+            <li><a href="Projects.html#infrastructure-transportation">Infrastructure & Transportation</a></li>
+            <li><a href="Projects.html#Urban Planning-Smart Cities">Urban Planning & Smart Cities</a></li>
+            <li><a href="Projects.html#Mining-Quarry">Mining & Quarry</a></li>
+            <li><a href="Projects.html#Power-Utilities">Power & Utilities</a></li>
+            <li><a href="Projects.html#Oil-Gas">Oil & Gas / Energy</a></li>
+            <li><a href="Projects.html#Construction">Construction & Real Estate</a></li>
+            <li><a href="Projects.html#Agriculture">Agriculture & Forestry</a></li>
+            <li><a href="Projects.html#Disaster">Disaster Management & Environment</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- NORMAL LINK -->
+      <li>
+        <a href="Projects.html#projects-executed">Projects Executed</a>
+      </li>
+
+    </ul>
+  </div>
+</li>
+
+
+         <li><a href="Contactus.html">Contact</a></li>
+    </ul>
+ <div class="theme-switch">
+    <span>Light</span>
+
+    <label class="switch">
+        <input type="checkbox" id="darkToggle">
+        <span class="slider"></span>
+    </label>
+
+    <span>Dark</span>
+</div>
+
+
+</div>
+</header>
+
+
+
+<div class="popup" id="popup">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <img class="popup-content" id="popupImg">
+</div>
+
+<section class="about">
+    <div class="container about-wrapper">
+
+        <div class="about-text">
+            <div class="section-title">
+           
+<h2><u>Services  </u></h2>
+            </div>
+
+            <p>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;With more than two decades of experience in the mapping industry, we are well aligned with evolving technologies and changing customer needs. By continuously adopting new software and production methodologies, we enhance our capabilities and improve delivery efficiency.
+            </p>
+
+            <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We have established dedicated teams for each deliverable as part of our production process. Our strong team of professionals efficiently executes projects with precision and reliability. Over the years, we have developed specialized methodologies for different mapping domains to enhance production efficiency and deliver the best results.
+            </p>
+
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="advantages" id="photogrammetry">
+    <div class="container">
+        <div class="section-title">
+            <h4>Photogrammetry</h4>
+
+<p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Having been in this business for more than 2 decades we are comfortably tunes into adapting to changing technologies and customer needs as demanded by the ever-increasing customized applications.  
+</p><p>
+We work on photogrammetric  <strong> Aerial images, Satellite images Drone images and point cloud inputs </strong>of various scales to provide a high-accuracy spatial  data. Our services in photogrammetry include </p>
+
+        </div>
+
+        <div class="adv-grid">
+
+            <ul>
+                <li>Aerial Triangulation </li>
+                <li>Orthophoto generation</li>
+                <li>Topographic Mapping </li>
+                <li>DTM / DSM Creation</li>
+                <li>Contour Extraction</li>
+                <li>Planimetric Data Capture</li>
+                <li>CAD Editing & Conversion</li>
+            </ul>
+<u1>
+<img src="Images/Services/Slides/PGY/PGY-F.GIF" class="popup-img">
+
+</u1>
+        </div>
+
+
+
+
+</section>
+
+
+<section class="advantages" id="lidar">
+    <div class="container">
+        <div class="section-title">
+
+            <h4>LiDAR</h4>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LiDAR is currently the most comprehensive and accurate method of creating spatial data. Lotus Geosolutions has an exceptional team to provide consistency in the quality and cost effective LiDAR services.
+</p>
+<p>
+Ground classification (Bare earth extraction) and advanced ground classification are performed. Our LiDAR services include</p>
+<p>
+<br>
+<Strong><u>Platforms</u></Strong>
+<section>
+<div class="feature-grid">
+    <div class="feature-box">
+      <h3>✈️ Airborne LiDAR</h3>
+  
+
+    </div>
+
+    <div class="feature-box">
+       <h3>🚗 Mobile LiDAR</h3>
+        
+      
+    </div>
+</section>
+
+</div>
+
+</p>
+
+        </div>
+
+
+        <div class="adv-grid">
+
+
+            <ul>
+                <li>Flight line Matching  </li>
+                <li>Ground Classification </li>
+                <li>Advanced Classification </li>
+                <li>2D vectorization</li>
+          
+                <li>3D vectorization</li>
+                <li>DTM / DSM generation </li>
+                <li>Contour creation</li>
+                <li>Orthophoto generation</li>
+<li>CAD editing</li>
+            </ul>
+<img src="Images/Services/Slides/Lidar/Services/Lidar.GIF" class="popup-img">
+        </div>
+
+
+
+
+    </div>
+</section>
+
+<section class="advantages" id="GIS">
+    <div class="container">
+        <div class="section-title">
+            <h4>GIS</h4>
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lotus Geosolutions provide comprehensive GIS data by processing Georeference, Projection conversion and Data attribution. The GDB of the project is validated by our QA team and it’s delivered on-time with persistent quality. Our GIS services include</p>
+
+        </div>
+
+
+        <div class="adv-grid">
+
+            <ul>
+                <li>Geo Reference </li>
+           <li>Cadastral mapping </li>
+
+                <li>Planimetric Mapping</li>
+                 <li>Data Attribution & Validation</li>
+                <li>CAD Editing with Annotation </li>
+                <li>Traffic sign and Attribution</li>
+               
+            </ul>
+<img src="Images/Services/Slides/GIS/GIS.GIF" class="popup-img">
+        </div>
+
+
+    </div>
+</section>
+
+
+<section class="advantages" id="ORTHO">
+    <div class="container">
+        <div class="section-title">
+            <h4>Orthophoto</h4>
+
+
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;An orthoimage is an aerial or satellite image that has been geometrically corrected (orthorectified) to ensure uniform scale and mapping accuracy. At Lotus Geo Solutions, we offer advanced orthoimage processing services to support precise and reliable geospatial analysis. Our Orthophoto production services include</p>
+<br>
+   <div class="adv-grid">
+
+            <ul>
+ <li>Drone, Satellite & Aerial Orthophotos</li>
+
+ <li>True Orthophotos</li>
+
+ <li>3-Band & 4-Band Outputs</li>
+
+ <li>Pan-Sharpened Imagery</li>
+
+ <li>LiDAR-Integrated Orthophotos</li>
+
+            </ul>
+<img src="Images/Services/Slides/Ortho/ORTHO.GIF" class="popup-img">
+        </div>
+
+     
+
+</section>
+
+<section class="advantages" id="BIM">
+    <div class="container">
+        <div class="section-title">
+<h4>Building Information Modelling (BIM) </h4>
+
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BIM revolutionizes the design, construction, and operation of buildings by creating a digital twin of real-world projects. At Lotus Geo Solutions, we offer comprehensive BIM services that are transforming the construction industry. We work closely with clients to develop custom 3D Revit models, with a strong emphasis on accuracy in every model we create. We provide Scan to BIM for</p> 
+
+<br><P>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our organization works with clients in line with their needs to create custom 3D Revit models. We have a skilled workforce of BIM modellers enough to deliver tailor-made 3D modelling services just the way the clients want. We mostly emphasize precision when it comes to Revit 3D modelling.</P>
+
+
+<br>
+
+<section>
+<div class="feature-grid3">
+    <div class="feature-box">
+      <h3>🏗️Structural BIM</h3>
+  
+
+    </div>
+
+    <div class="feature-box">
+       <h3>🏢Architectural BIM</h3>
+        
+      
+    </div>
+    <div class="feature-box">
+       <h3><img src="Images/Services/Slides/Lidar/Picture1.png" Width="22px" Height="22px">&nbsp;&nbsp;MEP</h3>
+        
+    </div>
+</section>
+
+
+  </div>
+
+
+        <div class="adv-grid">
+
+            <ul>
+                <li>Point Cloud to 3D model  </li>
+                <li>2D Floor Planning </li>
+                <li>2D Cross-section plan </li>
+                <li>2D Elevation plan </li>
+                <li>2D Ceiling plan</li>
+                <li>2D drawing to 3D model </li>
+                        </ul><img src="Images/Services/Slides/BIM/BIM.GIF" class="popup-img">
+        </div>
+
+
+    </div>
+</section>
+
+
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="About_us.html">About</a>
+            <a href="Services.html">Services</a>
+            <a href="Projects.html">Projects</a>
+            <a href="Contactus.html">Contact</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Lotus Geo Solution Pvt Ltd. All Rights Reserved.
+    </div>
+</footer>
+<script src="Script/Myscript.js"></script>
+</body>
+</html>
