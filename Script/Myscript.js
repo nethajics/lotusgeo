@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* -- DARK MODE-- */
+    /* ================= DARK MODE ================= */
 
     const toggle = document.getElementById("darkToggle");
 
@@ -22,14 +22,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* --- HERO SLIDER -- */
+    /* ================= HAMBURGER MENU ================= */
+
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (hamburger && mobileMenu) {
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("open");
+            mobileMenu.classList.toggle("open");
+            document.body.style.overflow =
+                mobileMenu.classList.contains("open") ? "hidden" : "";
+        });
+
+        // Close menu when any link is clicked
+        mobileMenu.querySelectorAll("a").forEach(a => {
+            a.addEventListener("click", () => {
+                hamburger.classList.remove("open");
+                mobileMenu.classList.remove("open");
+                document.body.style.overflow = "";
+            });
+        });
+
+        // Close menu when clicking outside (backdrop tap on mobile)
+        document.addEventListener("click", (e) => {
+            if (
+                mobileMenu.classList.contains("open") &&
+                !mobileMenu.contains(e.target) &&
+                !hamburger.contains(e.target)
+            ) {
+                hamburger.classList.remove("open");
+                mobileMenu.classList.remove("open");
+                document.body.style.overflow = "";
+            }
+        });
+    }
+
+
+    /* ================= HERO SLIDER ================= */
 
     const hero = document.querySelector(".hero");
 
     if (hero) {
 
         const slides = [
-    
             {
                 image: "images/Banner/PGY.PNG",
                 title: "Photogrammetry",
@@ -38,22 +75,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Aerial Imageries",
                     "Satellite Imageries",
                     "Drone Imageries",
-                    "Poinclould Inputs"
+                    "Pointcloud Inputs"
                 ],
                 link: "Services.html#photogrammetry"
-              },
-               {
+            },
+            {
                 image: "images/Banner/LIDAR.png",
                 title: "LiDAR",
-                desc: "Acuurate classification for :",
+                desc: "Accurate classification for :",
                 points: [
                     "Aerial LiDAR",
                     "Mobile LiDAR"
-                  
                 ],
                 link: "Services.html#lidar"
-                   },
-      {
+            },
+            {
                 image: "images/Banner/BIM.PNG",
                 title: "Scan to BIM",
                 desc: "Point cloud to BIM 3D Modelling :",
@@ -61,12 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Structural",
                     "Architectural",
                     "MEP"
-                   
                 ],
                 link: "Services.html#BIM"
             },
-    
-                 {
+            {
                 image: "images/Banner/ORTHO.JPG",
                 title: "Orthophoto",
                 desc: "Orthophoto processing includes :",
@@ -78,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 ],
                 link: "Services.html#ORTHO"
             },
-              {
+            {
                 image: "images/Banner/GIS.PNG",
                 title: "GIS",
                 desc: "Smart geospatial solutions :",
@@ -90,17 +124,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     "Asset management"
                 ],
                 link: "Services.html#GIS"
-               }
-         
+            }
         ];
 
         let index = 0;
 
-        const title = document.getElementById("hero-title");
-        const desc = document.getElementById("hero-desc");
+        const title  = document.getElementById("hero-title");
+        const desc   = document.getElementById("hero-desc");
         const points = document.getElementById("hero-points");
-        const btn = document.getElementById("hero-btn");
-        const dots = document.getElementById("hero-dots");
+        const btn    = document.getElementById("hero-btn");
+        const dots   = document.getElementById("hero-dots");
 
         slides.forEach((_, i) => {
             let dot = document.createElement("span");
@@ -111,13 +144,10 @@ document.addEventListener("DOMContentLoaded", function () {
         function showSlide(i) {
             index = i;
             const s = slides[i];
-
             hero.style.backgroundImage = `url(${s.image})`;
-
-            if (title) title.textContent = s.title;
-            if (desc) desc.textContent = s.desc;
-            if (btn) btn.href = s.link;
-
+            if (title)  title.textContent  = s.title;
+            if (desc)   desc.textContent   = s.desc;
+            if (btn)    btn.href           = s.link;
             if (points) {
                 points.innerHTML = "";
                 s.points.forEach(p => {
@@ -126,144 +156,103 @@ document.addEventListener("DOMContentLoaded", function () {
                     points.appendChild(li);
                 });
             }
-
             if (dots) {
                 dots.querySelectorAll("span").forEach(d => d.classList.remove("active"));
-                if (dots.children[i]) {
-                    dots.children[i].classList.add("active");
-                }
+                if (dots.children[i]) dots.children[i].classList.add("active");
             }
         }
 
-        function autoSlide() {
+        showSlide(0);
+        let heroTimer = setInterval(() => {
             index = (index + 1) % slides.length;
             showSlide(index);
-        }
-
-        showSlide(0);
-        setInterval(autoSlide, 3000);
+        }, 3000);
     }
 
 
-    /*---BEFORE / AFTER SLIDERS--- */
+    /* ================= BEFORE / AFTER SLIDERS ================= */
 
     document.querySelectorAll(".compare").forEach(container => {
 
         const overlay = container.querySelector(".compare-overlay");
-        const slider = container.querySelector(".compare-slider");
-
+        const slider  = container.querySelector(".compare-slider");
         if (!overlay || !slider) return;
 
-        // Default center position
         overlay.style.width = "50%";
-        slider.style.left = "50%";
-
+        slider.style.left   = "50%";
         let dragging = false;
 
         function update(x) {
             const rect = container.getBoundingClientRect();
-            let pos = x - rect.left;
-            pos = Math.max(0, Math.min(pos, rect.width));
-
+            let pos = Math.max(0, Math.min(x - rect.left, rect.width));
             overlay.style.width = pos + "px";
-            slider.style.left = pos + "px";
+            slider.style.left   = pos + "px";
         }
 
-        // Mouse
-        container.addEventListener("mousedown", e => {
-            dragging = true;
-            update(e.clientX);
-        });
-
+        container.addEventListener("mousedown", e => { dragging = true; update(e.clientX); });
         window.addEventListener("mouseup", () => dragging = false);
+        window.addEventListener("mousemove", e => { if (dragging) update(e.clientX); });
 
-        window.addEventListener("mousemove", e => {
-            if (!dragging) return;
-            update(e.clientX);
-        });
-
-        // Touch
-        container.addEventListener("touchstart", e => {
-            dragging = true;
-            update(e.touches[0].clientX);
-        });
-
+        container.addEventListener("touchstart", e => { dragging = true; update(e.touches[0].clientX); }, { passive: true });
         window.addEventListener("touchend", () => dragging = false);
+        window.addEventListener("touchmove", e => { if (dragging) update(e.touches[0].clientX); }, { passive: true });
+    });
 
-        window.addEventListener("touchmove", e => {
-            if (!dragging) return;
-            update(e.touches[0].clientX);
+
+    /* ================= RANGE SLIDER (Projects before/after) ================= */
+
+    document.querySelectorAll(".slider-container").forEach(container => {
+
+        const slider = container.querySelector(".slider");
+        const image  = container.querySelector(".top-img");
+        if (!slider || !image) return;
+
+        const update = (value) => {
+            const percent = Math.max(0, Math.min(100, value));
+            const clip = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
+            image.style.clipPath        = clip;
+            image.style.webkitClipPath  = clip;
+            container.style.setProperty('--position', percent + '%');
+        };
+
+        update(slider.value);
+
+        slider.addEventListener("input", (e) => {
+            requestAnimationFrame(() => update(e.target.value));
         });
-
     });
 
 });
 
 
-
-  /*-- Contact--- */
-
+/* ================= CONTACT FORM ================= */
 
 function sendMail(event) {
     event.preventDefault();
 
-    var firstName = document.getElementById("firstName").value;
-    var lastName = document.getElementById("lastName").value;
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-    var country = document.getElementById("country").value;
-    var company = document.getElementById("company").value;
-    var position = document.getElementById("position").value;
-    var message = document.getElementById("message").value;
+    const firstName = document.getElementById("firstName").value;
+    const lastName  = document.getElementById("lastName").value;
+    const email     = document.getElementById("email").value;
+    const phone     = document.getElementById("phone").value;
+    const country   = document.getElementById("country").value;
+    const company   = document.getElementById("company").value;
+    const position  = document.getElementById("position").value;
+    const message   = document.getElementById("message").value;
 
-    var subject = "New Inquiry from Website";
-
-    var body =
-        "First Name: " + firstName + "%0D%0A" +
-        "Last Name: " + lastName + "%0D%0A" +
-        "Email: " + email + "%0D%0A" +
-        "Phone: " + phone + "%0D%0A" +
-        "Country: " + country + "%0D%0A" +
-        "Company: " + company + "%0D%0A" +
-        "Position: " + position + "%0D%0A%0D%0A" +
+    const subject = "New Inquiry from Website";
+    const body =
+        "First Name: "  + firstName + "%0D%0A" +
+        "Last Name: "   + lastName  + "%0D%0A" +
+        "Email: "       + email     + "%0D%0A" +
+        "Phone: "       + phone     + "%0D%0A" +
+        "Country: "     + country   + "%0D%0A" +
+        "Company: "     + company   + "%0D%0A" +
+        "Position: "    + position  + "%0D%0A%0D%0A" +
         "Message: %0D%0A" + message;
 
-  window.location.href = "mailto:k.pushparaj@lotusgeo.in"
-        + "?cc=vinod@lotusgeo.in"
-        + "&subject=" + subject
-        + "&body=" + body;
-
+    window.location.href =
+        "mailto:k.pushparaj@lotusgeo.in" +
+        "?cc=vinod@lotusgeo.in" +
+        "&subject=" + subject +
+        "&body="    + body;
 }
-
-
-/*---------Before & After----------*/
-
-document.querySelectorAll(".slider-container").forEach(container => {
-
-    const slider = container.querySelector(".slider");
-    const image = container.querySelector(".top-img");
-
-    if (!slider || !image) return;
-
-    const update = (value) => {
-        const percent = Math.max(0, Math.min(100, value)); // clamp safety
-
-        const clip = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
-
-        image.style.clipPath = clip;
-        image.style.webkitClipPath = clip;
-
-        container.style.setProperty('--position', percent + '%');
-    };
-
-    // Initial render
-    update(slider.value);
-
-    // Smooth update
-    slider.addEventListener("input", (e) => {
-        requestAnimationFrame(() => {
-            update(e.target.value);
-        });
-    });
-
-});

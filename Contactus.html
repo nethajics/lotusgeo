@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
+
 //* ========================= */
 /* CONTACT PAGE */
 /* ========================= */
@@ -241,58 +242,7 @@ padding:35px;
 
 }
 
-/* ===== FOOTER ===== */
-
-.site-footer{
-    margin-top:40px;
-    font-family:'Poppins',sans-serif;
-    color:#4b5563;
-}
-
-/* Main Footer */
-
-.footer-container{
-    background:#f8fafc;
-    border-top:1px solid #e5e7eb;
-    padding:14px 0;
-}
-
-/* Links layout - single line */
-
-.footer-links{
-    max-width:700px;
-    margin:auto;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:25px;              /* space between links */
-    flex-wrap:wrap;        /* wraps only on very small screens */
-}
-
-/* Links */
-
-.footer-links a{
-    text-decoration:none;
-    font-size:14px;
-    font-weight:500;
-    color:#374151;
-    transition:.2s;
-}
-
-.footer-links a:hover{
-    color:#2563eb;
-}
-
-/* Bottom copyright */
-
-.footer-bottom{
-    background:#f1f5f9;
-    text-align:center;
-    padding:8px 0;
-    font-size:12.5px;
-    color:#6b7280;
-    border-top:1px solid #e5e7eb;
-}
+/* footer handled by Stylesheet.css */
 /* GRID LAYOUT */
 .link-grid {
     display: grid;
@@ -341,75 +291,7 @@ padding:35px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/*New Drop Down List*/
-/* MAIN DROPDOWN */
-.mega-dropdown {
-    position: relative;
-}
-
-.mega-menu {
-    display: none;
-    position: absolute;
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.mega-dropdown:hover .mega-menu {
-    display: block;
-}
-
-
-
-/* SUB DROPDOWN */
-.sub-dropdown {
-    position: relative;
-}
-
-.sub-menu {
-    display: none;
-    position: absolute;
-    left: 180px;
-
-     top:0;
-    transform: translateY(-50%);
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    font-size: 13px; /* 👈 reduced text size */
-
-}
-
-/* SHOW ON HOVER */
-.sub-dropdown:hover .sub-menu {
-    display: block;
-}
-
-/* GRID STYLE */
-.link-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-}
-
-.link-grid a {
-    text-decoration: none;
-    color: #2c3e50;
-    padding: 8px;
-    border-radius: 6px;
-    background: #f4f6f8;
-    display: block;
-    transition: 0.2s;
-}
-
-.link-grid a:hover {
-    background: #0072ff;
-    color: #fff;
-}
+/* dropdowns handled by Stylesheet.css */
 .contact-left {
     padding: 40px;
 }
@@ -492,6 +374,7 @@ font-size: 15px;
     margin-bottom: 15px;
 }
 
+
 </style>
 
 </head>
@@ -506,13 +389,13 @@ font-size: 15px;
 <header>
     <div class="container nav">
         <div class="nav-left">
-             <a href="index.html">
+             <a href="Home.html">
             <img src="images/logo.png" class="logo" alt="Lotus GeoSolutions Logo">
         </a>
             <div class="company-name">Lotus GeoSolutions Pvt Ltd</div>
         </div>
     <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="Home.html">Home</a></li>
         <li><a href="About_us.html">About us</a></li>
 
         <li class="mega-dropdown">
@@ -575,10 +458,30 @@ font-size: 15px;
 
     <span>Dark</span>
 </div>
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
 
 
 </div>
 </header>
+
+<nav class="mobile-menu" id="mobileMenu">
+    <a href="Home.html">🏠 Home</a>
+    <a href="About_us.html">ℹ️ About Us</a>
+    <a href="Services.html">🛠️ Services</a>
+    <a href="Services.html#photogrammetry" class="mobile-menu-child">↳ Photogrammetry</a>
+    <a href="Services.html#lidar" class="mobile-menu-child">↳ LiDAR</a>
+    <a href="Services.html#GIS" class="mobile-menu-child">↳ GIS</a>
+    <a href="Services.html#ORTHO" class="mobile-menu-child">↳ Orthophoto</a>
+    <a href="Services.html#BIM" class="mobile-menu-child">↳ 3D Modeling</a>
+    <a href="Projects.html">📁 Projects</a>
+    <a href="Projects.html#project-experience" class="mobile-menu-child">↳ Project Experience</a>
+    <a href="Projects.html#projects-executed" class="mobile-menu-child">↳ Projects Executed</a>
+    <a href="Contactus.html">📬 Contact</a>
+</nav>
 
 
 
@@ -683,8 +586,8 @@ font-size: 15px;
 </p>
 
                 <p><strong>Email:</strong><br>
-                k.pushparaj@lotusgeo.in<br>
-                vinod@lotusgeo.in</p>
+                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfa4e1bfbabca7bfaebdaea58fa3a0bbbabca8aaa0e1a6a1">[email&#160;protected]</a><br>
+                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="55233c3b3a3115393a21202632303a7b3c3b">[email&#160;protected]</a></p>
 
                 <p><strong>Working Hours:</strong><br>
                 Mon - Sat: 9:00 am – 06:00 pm<br>
@@ -694,7 +597,7 @@ font-size: 15px;
         <i class="fab fa-whatsapp"></i>
     </a>
 <br>
-    <a href="mailto:k.pushparaj@lotusgeo.in" class="social-icon email">
+    <a href="/cdn-cgi/l/email-protection#355e1b4540465d455447545f75595a41404652505a1b5c5b" class="social-icon email">
         <i class="fas fa-envelope"></i>
     </a>
 <br>
@@ -715,39 +618,11 @@ font-size: 15px;
     </div>
 </section>
 
-
-<footer class="site-footer">
-
-    <div class="footer-container">
-        <div class="footer-links">
-            <a href="About_us.html">About</a>
-            <a href="Services.html">Services</a>
-            <a href="Projects.html">Projects</a>
-            <a href="Contactus.html">Contact</a>
-        </div>
-    </div>
-<footer class="site-footer">
-
-    <div class="footer-bottom">
-        © 2026 Lotus Geo Solution Pvt Ltd. All Rights Reserved.
-    </div>
-</footer>
-
-<script src="Script/Myscript.js"></script>
 <!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
     var map = L.map('map').setView([12.9038461, 77.5859047], 17);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    L.marker([12.9038461, 77.5859047])
-        .addTo(map)
-        .bindPopup("Lotus Geosolution-JP Nagar")
-        .openPopup();
-</script>
-</body>
-</html>
+        attribution: '&cop
