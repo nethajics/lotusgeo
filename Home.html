@@ -5,169 +5,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lotus GeoSolutions Pvt Ltd</title>
 <link rel="stylesheet" href="Style/Stylesheet.css">
-<style>
-
-
-
-/* footer handled by Stylesheet.css */
-/* GRID LAYOUT */
-.link-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-}
-
-.modern-link {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    color: #2c3e50;
-    
-    padding: 14px 12px;
-    border-radius: 12px;
-
-    background: linear-gradient(145deg, #f8fafc, #eef2f7);
-    border: 1px solid #e2e8f0;
-
-    box-shadow: 
-        0 2px 6px rgba(0,0,0,0.05),
-        inset 0 1px 0 rgba(255,255,255,0.6);
-
-    transition: all 0.3s ease;
-}
-
-/* HOVER - smooth premium feel */
-.modern-link:hover {
-    background: linear-gradient(135deg, #0072ff, #00c6ff);
-    color: #ffffff;
-    border-color: transparent;
-
-    transform: translateY(-3px);
-
-    box-shadow: 
-        0 10px 25px rgba(0, 114, 255, 0.25);
-}
-
-/* CLICK effect */
-.modern-link:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-/* dropdowns handled by Stylesheet.css */
-
-.tick{
-    color: Teal;
-
-}
-
-
-</style>
+<link rel="stylesheet" href="Style/Pages.css">
 <script>
 window.addEventListener("load", function(){
     const loader = document.getElementById("loader-wrapper");
-    setTimeout(function(){
-        loader.classList.add("loader-hide");
-    }, 1200);
+    if(loader){
+        setTimeout(function(){ loader.classList.add("loader-hide"); }, 1200);
+    }
 });
-
 </script>
-
-
 </head>
 
 <body>
-
 
 <div id="top-loader">
     <div class="top-loader-bar"></div>
 </div>
 
-
-
 <header>
     <div class="container nav">
         <div class="nav-left">
-             <a href="Home.html">
-            <img src="images/logo.png" class="logo" alt="Lotus GeoSolutions Logo">
-        </a>
+            <a href="Home.html">
+                <img src="images/logo.png" class="logo" alt="Lotus GeoSolutions Logo">
+            </a>
             <div class="company-name">Lotus GeoSolutions Pvt Ltd</div>
         </div>
-    <ul>
-        <li><a href="Home.html">Home</a></li>
-        <li><a href="About_us.html">About us</a></li>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="About_us.html">About us</a></li>
 
-        <li class="mega-dropdown">
-            <a href="Services.html">Services ⮟</a>
-            <div class="mega-menu">
-                <ul>
-                    <li><a href="Services.html#photogrammetry">Photogrammetry</a></li>
-                    <li><a href="Services.html#lidar">LiDAR</a></li>
-                    <li><a href="Services.html#GIS">GIS</a></li>
-                    <li><a href="Services.html#ORTHO">Orthophoto</a></li>
-                    <li><a href="Services.html#BIM">3D Modeling</a></li>
-                </ul>
-            </div>
-        </li>
+            <li class="mega-dropdown">
+                <a href="Services.html">Services ⮟</a>
+                <div class="mega-menu">
+                    <ul>
+                        <li><a href="Services.html#photogrammetry">Photogrammetry</a></li>
+                        <li><a href="Services.html#lidar">LiDAR</a></li>
+                        <li><a href="Services.html#GIS">GIS</a></li>
+                        <li><a href="Services.html#ORTHO">Orthophoto</a></li>
+                        <li><a href="Services.html#BIM">3D Modeling</a></li>
+                    </ul>
+                </div>
+            </li>
 
-<li class="mega-dropdown">
-  <a href="Projects.html">Projects ⮟</a>
+            <li class="mega-dropdown">
+                <a href="Projects.html">Projects ⮟</a>
+                <div class="mega-menu">
+                    <ul>
+                        <li class="sub-dropdown">
+                            <a href="Projects.html#project-experience">Project Experience ➢</a>
+                            <div class="sub-menu">
+                                <ul class="mega-menu">
+                                    <li><a href="Projects.html#infrastructure-transportation">Infrastructure &amp; Transportation</a></li>
+                                    <li><a href="Projects.html#Urban Planning-Smart Cities">Urban Planning &amp; Smart Cities</a></li>
+                                    <li><a href="Projects.html#Mining-Quarry">Mining &amp; Quarry</a></li>
+                                    <li><a href="Projects.html#Power-Utilities">Power &amp; Utilities</a></li>
+                                    <li><a href="Projects.html#Oil-Gas">Oil &amp; Gas / Energy</a></li>
+                                    <li><a href="Projects.html#Construction">Construction &amp; Real Estate</a></li>
+                                    <li><a href="Projects.html#Agriculture">Agriculture &amp; Forestry</a></li>
+                                    <li><a href="Projects.html#Disaster">Disaster Management &amp; Environment</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="Projects.html#projects-executed">Projects Executed</a></li>
+                    </ul>
+                </div>
+            </li>
 
-  <div class="mega-menu">
-    <ul>
-      
-      <!-- SUB DROPDOWN -->
-      <li class="sub-dropdown">
-        <a href="Projects.html#project-experience">Project Experience ➢</a>
+            <li><a href="Contactus.html">Contact</a></li>
+        </ul>
 
-        <div class="sub-menu">
-          <ul class="mega-menu">
-            <li><a href="Projects.html#infrastructure-transportation">Infrastructure & Transportation</a></li>
-            <li><a href="Projects.html#Urban Planning-Smart Cities">Urban Planning & Smart Cities</a></li>
-            <li><a href="Projects.html#Mining-Quarry">Mining & Quarry</a></li>
-            <li><a href="Projects.html#Power-Utilities">Power & Utilities</a></li>
-            <li><a href="Projects.html#Oil-Gas">Oil & Gas / Energy</a></li>
-            <li><a href="Projects.html#Construction">Construction & Real Estate</a></li>
-            <li><a href="Projects.html#Agriculture">Agriculture & Forestry</a></li>
-            <li><a href="Projects.html#Disaster">Disaster Management & Environment</a></li>
-          </ul>
+        <div class="theme-switch">
+            <span>Light</span>
+            <label class="switch">
+                <input type="checkbox" id="darkToggle">
+                <span class="slider"></span>
+            </label>
+            <span>Dark</span>
         </div>
-      </li>
 
-      <!-- NORMAL LINK -->
-      <li>
-        <a href="Projects.html#projects-executed">Projects Executed</a>
-      </li>
-
-    </ul>
-  </div>
-</li>
-
-
-         <li><a href="Contactus.html">Contact</a></li>
-    </ul>
- <div class="theme-switch">
-    <span>Light</span>
-
-    <label class="switch">
-        <input type="checkbox" id="darkToggle">
-        <span class="slider"></span>
-    </label>
-
-    <span>Dark</span>
-</div>
-<button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-
-
-</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
 </header>
 
 <nav class="mobile-menu" id="mobileMenu">
@@ -186,70 +105,45 @@ window.addEventListener("load", function(){
 </nav>
 
 
-
-
 <section class="hero">
-
     <div class="hero-overlay"></div>
-
     <div class="hero-content">
         <h1 id="hero-title">Lidar Service.</h1>
-
-        <p id="hero-desc">
-            We provide different kind of services in Lidar Service:
-        </p>
-
+        <p id="hero-desc">We provide different kind of services in Lidar Service:</p>
         <ul id="hero-points">
             <li>Terra match (Aerial / Mobile)</li>
             <li>Mobile mapping</li>
             <li>3D City modeling</li>
             <li>DTM / DSM</li>
         </ul>
-
         <a id="hero-btn" href="Services.html#lidar" class="hero-btn">View Page...</a>
     </div>
-
     <div class="hero-dots" id="hero-dots"></div>
-
 </section>
 
 
 <section class="about">
     <div class="container about-wrapper">
-
         <div class="about-text">
-            <div class="section-title">
-             
-            </div>
-
             <p>
-    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lotus Geo is a Geographic Information System (GIS) consulting company that has been pioneering geospatial services in <span class="tick"><strong> photogrammetry since 1999 and has expanded its services to include LiDAR, GIS, Orthophoto Processing, and Building Information Modelling (BIM).</strong> </span>        
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lotus Geo is a Geographic Information System (GIS) consulting company that has been pioneering geospatial services in
+                <span class="tick"><strong>photogrammetry since 1999 and has expanded its services to include LiDAR, GIS, Orthophoto Processing, and Building Information Modelling (BIM).</strong></span>
                 With extensive global experience, we deliver ready-to-use, highly accurate geospatial data supporting diverse industry-focused GIS applications.
             </p>
-
-            <p>
-             
-<i>We transform complex spatial data into actionable insights—accurately, efficiently, and on time.    </i>        </p>
-
+            <p><i>We transform complex spatial data into actionable insights—accurately, efficiently, and on time.</i></p>
         </div>
-
     </div>
 </section>
 
 
-        <div class="section-title">
-            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our Services</h3>
+<div class="section-title">
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our Services</h3>
+</div>
 
 <section class="services">
     <div class="services-container">
-
-
-
         <div class="service-box">
-
             <div class="card">
-
                 <h3><a href="Services.html#photogrammetry">Photogrammetry Service</a></h3>
                 <ul>
                     <li>✅ Aerial Triangulation</li>
@@ -261,7 +155,7 @@ window.addEventListener("load", function(){
                     <li>✅ Data Conversion</li>
                 </ul>
             </div>
-          <div class="card">
+            <div class="card">
                 <h3><a href="Services.html#lidar">LiDAR Service</a></h3>
                 <ul>
                     <li>✅ Flight line Matching</li>
@@ -269,7 +163,7 @@ window.addEventListener("load", function(){
                     <li>✅ Advanced Classification</li>
                     <li>✅ 2D / 3D vectorization</li>
                     <li>✅ DTM / DSM generation</li>
-                    <li>✅ Contour creation </li>
+                    <li>✅ Contour creation</li>
                     <li>✅ Ortho photo generation</li>
                     <li>✅ CAD editing</li>
                 </ul>
@@ -278,24 +172,23 @@ window.addEventListener("load", function(){
                 <h3><a href="Services.html#BIM">BIM Service</a></h3>
                 <ul>
                     <li>✅ Point Cloud to 3D model</li>
-                    <li>✅ 2D Floor Planning </li>
-                    <li>✅ 2D Cross-section plan </li>
-                    <li>✅ 2D Elevation plan </li>
-                    <li>✅ 2D Ceiling plan </li>
-                    <li>✅ 2D drawing to 3D model </li>
-
+                    <li>✅ 2D Floor Planning</li>
+                    <li>✅ 2D Cross-section plan</li>
+                    <li>✅ 2D Elevation plan</li>
+                    <li>✅ 2D Ceiling plan</li>
+                    <li>✅ 2D drawing to 3D model</li>
                 </ul>
             </div>
             <div class="card">
                 <h3><a href="Services.html#ORTHO">Orthophoto Service</a></h3>
                 <ul>
                     <li>✅ Orthophoto generation</li>
-                    <li>✅ Mosaicing & Cleanup</li>
+                    <li>✅ Mosaicing &amp; Cleanup</li>
                     <li>✅ DEM correction</li>
                 </ul>
             </div>
             <div class="card">
-                <h3><a href="Services.html#GIS">GIS Data Analysis & Mapping</a></h3>
+                <h3><a href="Services.html#GIS">GIS Data Analysis &amp; Mapping</a></h3>
                 <ul>
                     <li>✅ Geo Reference</li>
                     <li>✅ Planimetric Mapping</li>
@@ -306,7 +199,7 @@ window.addEventListener("load", function(){
         </div>
     </div>
 </section>
-        </div>
+
 
 <section class="advantages">
     <div class="container">
@@ -318,7 +211,7 @@ window.addEventListener("load", function(){
                 <li>Comprehensive GIS Solutions</li>
                 <li>Small to Large Scale Projects</li>
                 <li>Application-Specific Solutions</li>
-                <li>Onshore & Offshore Delivery</li>
+                <li>Onshore &amp; Offshore Delivery</li>
             </ul>
             <ul>
                 <li>Complementing Infrastructure</li>
@@ -330,8 +223,8 @@ window.addEventListener("load", function(){
     </div>
 </section>
 
-<footer class="site-footer">
 
+<footer class="site-footer">
     <div class="footer-container">
         <div class="footer-links">
             <a href="About_us.html">About</a>
@@ -340,11 +233,11 @@ window.addEventListener("load", function(){
             <a href="Contactus.html">Contact</a>
         </div>
     </div>
-
     <div class="footer-bottom">
         © 2026 Lotus Geo Solution Pvt Ltd. All Rights Reserved.
     </div>
 </footer>
+
 <script src="Script/Myscript.js"></script>
 </body>
 </html>
