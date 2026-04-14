@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
    SECTION TITLES
    ========================================================= */
 .section-title {
-  text-align: Left;
+  text-align: center;
   margin-bottom: 36px;
 }
 
@@ -415,7 +415,71 @@ img.popup-img {
   transform: scale(1.2);
 }
 
-/
+/* =========================================================
+   SERVICES PAGE — BANNER
+   ========================================================= */
+.Bann {
+  width: 100%;
+  height: 26vh;
+  min-height: 160px;
+  max-height: 380px;
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--radius-md);
+  margin-bottom: 24px;
+}
+
+.Bann img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 5s ease;
+}
+
+.Bann:hover img { transform: scale(1.05); }
+
+.Bann::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15,36,69,.65),
+    rgba(15,36,69,.25),
+    rgba(15,36,69,.05)
+  );
+  z-index: 1;
+}
+
+.banner-content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 6%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 400px;
+}
+
+.banner-content h1 { font-size: 1.6rem; margin-bottom: 6px; }
+.banner-content p  { font-size: .9rem; opacity: .9; }
+
+.banner-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 18px;
+  font-size: .85rem;
+  font-weight: 600;
+  background: var(--brand-blue);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background var(--transition);
+}
+.banner-btn:hover { background: #1558c0; }
+
 /* feature grids (Services - LiDAR, BIM) */
 .feature-grid,
 .feature-grid3 {
@@ -649,8 +713,8 @@ img.popup-img {
   height: 42px;
   border-radius: 50%;
   display: flex;
-  align-items: Left;
-  justify-content: Left;
+  align-items: center;
+  justify-content: center;
   font-size: 17px;
   color: #fff;
   transition: transform var(--transition), box-shadow var(--transition);
