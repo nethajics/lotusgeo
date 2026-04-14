@@ -50,7 +50,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Sora', sans-serif;
-  line-height: 1.3;
+
 }
 
 /* =========================================================
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--brand-navy);
   display: inline-block;
   padding-bottom: 10px;
-  border-bottom: 3px solid var(--brand-blue);
+
 }
 
 /* =========================================================
@@ -370,8 +370,8 @@ img.popup-img {
 .mini-hero-slider {
   position: relative;
   width: 90%;
-  max-width: 1500px;
-  height: 290px;
+  max-width: 1200px;
+  height: 250px;
   margin: 0 auto 10px;
   overflow: hidden;
   background: transparent;
@@ -402,8 +402,8 @@ img.popup-img {
 }
 
 .mini-dots span {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: rgba(255,255,255,.5);
   cursor: pointer;
@@ -487,7 +487,7 @@ img.popup-img {
   font-weight: 700;
   color: var(--brand-navy);
   position: relative;
-  display: inline-block;
+
   margin-bottom: 10px;
 }
 
@@ -649,8 +649,8 @@ img.popup-img {
   height: 42px;
   border-radius: 50%;
   display: flex;
-  align-items: Left;
-  justify-content: Left;
+  align-items: Center;
+  justify-content: Center;
   font-size: 17px;
   color: #fff;
   transition: transform var(--transition), box-shadow var(--transition);

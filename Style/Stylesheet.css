@@ -232,6 +232,56 @@ header{
 /* =============================================
    DROPDOWN
    ============================================= */
+/* =========================
+   SUB MENU FIX
+   ========================= */
+
+.sub-dropdown {
+    position: relative;
+}
+
+/* hidden by default */
+.sub-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 260px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: 0.25s ease;
+    z-index: 999;
+    padding: 10px 0;
+}
+
+/* show on hover */
+.sub-dropdown:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* menu items */
+.sub-menu li {
+    list-style: none;
+}
+
+.sub-menu a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 14px;
+    color: #2c3e50;
+    text-decoration: none;
+    border-bottom: 1px solid #edf2f6;
+}
+
+.sub-menu a:hover {
+    background: #f1f6f9;
+    color: #0b5d7c;
+}
 .mega-menu{
     position:absolute;
     top:100%;
